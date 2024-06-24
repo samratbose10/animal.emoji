@@ -4,11 +4,15 @@ const copyBtn = document.getElementById('copy-btn');
 const saveBtn = document.getElementById('save-btn');
 const loader = document.getElementById('loader');
 const counter = document.getElementById('counter');
+const emojiLeft = document.getElementById('emoji-left');
+const emojiRight = document.getElementById('emoji-right');
 
 let faceCount = 0;
 
 const UNSPLASH_ACCESS_KEY = 'VGP7rO5d_0bILfyGWkPmM2XpPVMTE5lV6RRN6--HkUk'; 
 const UNSPLASH_API_URL = `https://api.unsplash.com/photos/random?query=funny+animal&client_id=${UNSPLASH_ACCESS_KEY}`;
+
+const funnyEmojis = ['😂', '😄', '😆', '🤣', '😹', '😜', '🤪', '😝', '😁'];
 
 generateBtn.addEventListener('click', () => {
     loader.style.display = 'block';
@@ -20,15 +24,12 @@ generateBtn.addEventListener('click', () => {
             faceImage.src = data.urls.regular;
             faceImage.alt = data.alt_description || 'Funny Animal Face';
 
-            
             faceImage.classList.add('animate');
             setTimeout(() => faceImage.classList.remove('animate'), 300);
 
-            
             faceCount++;
             counter.textContent = `Faces Generated: ${faceCount}`;
 
-            
             loader.style.display = 'none';
             faceImage.style.display = 'block';
         })
@@ -36,15 +37,18 @@ generateBtn.addEventListener('click', () => {
             console.error('Error fetching image:', error);
             loader.style.display = 'none';
         });
-});
 
+    const randomEmojiLeft = funnyEmojis[Math.floor(Math.random() * funnyEmojis.length)];
+    const randomEmojiRight = funnyEmojis[Math.floor(Math.random() * funnyEmojis.length)];
+    emojiLeft.textContent = randomEmojiLeft;
+    emojiRight.textContent = randomEmojiRight;
+});
 
 copyBtn.addEventListener('click', () => {
     navigator.clipboard.writeText(faceImage.src).then(() => {
         alert('Image URL copied to clipboard!');
     });
 });
-
 
 saveBtn.addEventListener('click', () => {
     const link = document.createElement('a');

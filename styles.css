@@ -1,4 +1,4 @@
-
+/* Add a background gradient */
 body {
     font-family: Arial, sans-serif;
     display: flex;
@@ -7,14 +7,19 @@ body {
     height: 100vh;
     background: linear-gradient(135deg, #74ebd5, #acb6e5);
     margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .container {
     text-align: center;
     background: white;
     padding: 30px;
-    border-radius: 12px;
+    border-radius: 20px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 h1 {
@@ -29,9 +34,7 @@ h1 {
 }
 
 .face img {
-    max-width: 300px;
-    max-height: 300px;
-    width: auto;
+    max-width: 100%;
     height: auto;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -41,7 +44,26 @@ h1 {
     transform: rotate(360deg);
 }
 
+/* Emoji styles */
+.emoji {
+    position: absolute;
+    font-size: 2em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
 
+#emoji-left {
+    top: 50%;
+    left: -40px;
+    transform: translateY(-50%);
+}
+
+#emoji-right {
+    top: 50%;
+    right: -40px;
+    transform: translateY(-50%);
+}
+
+/* Loader styles */
 .loader {
     display: none;
     border: 8px solid #f3f3f3;
@@ -70,26 +92,29 @@ button {
     padding: 10px 20px;
     font-size: 16px;
     border-radius: 25px;
-    background-color: #007BFF;
+    background: linear-gradient(135deg, #007BFF, #00C6FF);
     color: white;
     border: none;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-
 button:hover {
-    background-color: #0056b3;
+    background: linear-gradient(135deg, #0056b3, #00a6ff);
     transform: translateY(-2px);
 }
 
-
 button:active {
-    background-color: #004494;
+    background: linear-gradient(135deg, #004494, #0086cc);
     transform: translateY(1px);
 }
 
+button:focus {
+    outline: none;
+}
 
+/* Counter styles */
 p#counter {
     font-size: 18px;
     color: #333;
@@ -98,4 +123,24 @@ p#counter {
     padding: 10px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    .emoji {
+        font-size: 1.5em;
+    }
+
+    button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    p#counter {
+        font-size: 16px;
+    }
 }
