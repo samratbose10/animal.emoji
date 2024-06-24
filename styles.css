@@ -1,54 +1,101 @@
+
 body {
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f0f0f0;
+    background: linear-gradient(135deg, #74ebd5, #acb6e5);
     margin: 0;
 }
 
 .container {
     text-align: center;
     background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 h1 {
     color: #333;
+    margin-bottom: 20px;
 }
 
 .face {
-    font-size: 100px;
+    position: relative;
     margin: 20px 0;
-    /* Animation for the emoji face */
     transition: transform 0.3s ease-in-out;
+}
+
+.face img {
+    max-width: 300px;
+    max-height: 300px;
+    width: auto;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .face.animate {
     transform: rotate(360deg);
 }
 
+
+.loader {
+    display: none;
+    border: 8px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 8px solid #007BFF;
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
 .controls {
     margin: 20px 0;
 }
 
-select, button {
-    margin: 5px;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 4px;
-}
-
 button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 25px;
     background-color: #007BFF;
     color: white;
     border: none;
     cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
+
 
 button:hover {
     background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+
+button:active {
+    background-color: #004494;
+    transform: translateY(1px);
+}
+
+
+p#counter {
+    font-size: 18px;
+    color: #333;
+    margin: 20px 0;
+    background: #f0f0f0;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
