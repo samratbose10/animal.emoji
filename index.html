@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emoji Animal Face Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Emoji Animal Face Generator</h1>
+        <div class="face">
+            <span class="emoji" id="face-emoji">😺</span>
+        </div>
+        <!-- Dropdown menu for emoji categories -->
+        <div class="controls">
+            <select id="category-select">
+                <option value="animals">Animals</option>
+                <option value="faces">Faces</option>
+                <option value="foods">Foods</option>
+            </select>
+            <button id="generate-btn">Generate Face</button>
+            <!-- Button to copy emoji to clipboard -->
+            <button id="copy-btn">Copy Emoji</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
